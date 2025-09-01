@@ -1,79 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatDefender Antivirus</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0a0a0a;
-            color: #f0f0f0;
-            text-align: center;
-        }
-        header {
-            background: #111;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #4cafef;
-        }
-        p.slogan {
-            font-size: 1.2em;
-            color: #ccc;
-        }
-        .features {
-            margin: 40px auto;
-            max-width: 800px;
-        }
-        .feature {
-            margin: 20px 0;
-            padding: 15px;
-            background: #1a1a1a;
-            border-radius: 8px;
-        }
-        .download-btn {
-            display: inline-block;
-            margin: 30px;
-            padding: 15px 25px;
-            background: #4cafef;
-            color: #fff;
-            font-size: 1.2em;
-            font-weight: bold;
-            border-radius: 8px;
-            text-decoration: none;
-        }
-        .download-btn:hover {
-            background: #3a9ad9;
-        }
-        footer {
-            background: #111;
-            padding: 15px;
-            font-size: 0.9em;
-            color: #888;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CatDefender Antivirus – Leicht. Schnell. Kostenlos.</title>
+  <meta name="description" content="CatDefender ist ein leichtes Antivirus-Tool für Windows. Einfacher Scan, Quarantäne & sicheres Löschen. Kostenlos und Open Community.">
+  <link rel="icon" href="favicon.ico"><!-- optional: eigenes Icon -->
+  <style>
+    :root{
+      --bg:#0c0f14; --bg-soft:#131822; --card:#161c27; --muted:#a6b1c2;
+      --text:#eaf1ff; --accent:#37b0ff; --accent-2:#2597e6; --ok:#2bd978; --warn:#ffcb4d;
+      --radius:14px; --shadow:0 10px 28px rgba(0,0,0,.45);
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,var(--bg) 0%,#0d121a 100%);color:var(--text);font:16px/1.6 "Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{color:var(--accent-2)}
+    .container{max-width:var(--max);margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:rgba(12,15,20,.75);backdrop-filter:blur(8px);border-bottom:1px solid #1b2330;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:30px;height:30px;border-radius:8px;background:radial-gradient(circle at 30% 30%,#6ce1ff,transparent 35%),radial-gradient(circle at 70% 70%,#2e7fda,transparent 45%),#0e1622;border:1px solid #2a3446}
+    .brand h1{font-size:18px;margin:0}
+    .hero{padding:64px 0 16px;text-align:center}
+    .hero h2{font-size:44px;line-height:1.1;margin:0 0 10px;letter-spacing:.2px}
+    .hero p{margin:0 auto 24px;max-width:760px;color:var(--muted)}
+    .cta{display:inline-block;background:var(--accent);color:#001428;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:var(--shadow);transition:.15s;letter-spacing:.2px}
+    .cta:hover{transform:translateY(-1px);background:var(--accent-2)}
+    .meta{margin-top:12px;color:var(--muted);font-size:.95rem}
+    .section{padding:40px 0}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid #1f2a3b;border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .features .card{display:flex;align-items:center;gap:12px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(43,217,120,.12)}
+    .muted{color:var(--muted)}
+    .screens img{width:100%;border-radius:12px;border:1px solid #223149;display:block}
+    .kicker{font-weight:700;color:#9ed1ff;margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase;font-size:.8rem}
+    .h3{font-size:26px;margin:0 0 6px}
+    .list{padding-left:18px;margin:10px 0 0}
+    .list li{margin:6px 0}
+    .faq details{background:var(--card);border:1px solid #1f2a3b;border-radius:12px;padding:14px 16px}
+    .faq details+details{margin-top:10px}
+    .faq summary{cursor:pointer;font-weight:600}
+    footer{margin-top:40px;border-top:1px solid #1a2434;background:#0a0e14}
+    .foot{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:20px 0}
+    .pill{display:inline-flex;gap:10px;align-items:center;background:var(--bg-soft);border:1px solid #1f2a3b;border-radius:999px;padding:8px 12px}
+    code{background:#111827;border:1px solid #1f2a3b;border-radius:8px;padding:4px 6px}
+    @media (max-width:880px){
+      .hero h2{font-size:34px}
+      .grid{grid-template-columns:repeat(6,1fr)}
+    }
+    @media (max-width:540px){
+      .hero{padding-top:46px}
+      .hero h2{font-size:28px}
+      .cta{width:100%}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>CatDefender Antivirus</h1>
-        <p class="slogan">Schütze deinen PC wie eine Katze ihr Revier.</p>
-    </header>
 
-    <section class="features">
-        <h2>Features</h2>
-        <div class="feature">✔ Scan nach Bedrohungen</div>
-        <div class="feature">✔ Quarantäne-Ordner</div>
-        <div class="feature">✔ Dateien sicher löschen</div>
-        <div class="feature">✔ Kostenlos & leicht zu bedienen</div>
-    </section>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <h1>CatDefender</h1>
+    </div>
+    <nav>
+      <a href="#features">Features</a> &nbsp;&nbsp;
+      <a href="#how">So funktioniert’s</a> &nbsp;&nbsp;
+      <a href="#download">Download</a> &nbsp;&nbsp;
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
 
-    <a href="downloads/CatDefenderSetup.exe" class="download-btn">Download für Windows</a>
+<main>
+  <section class="hero container">
+    <h2>CatDefender Antivirus</h2>
+    <p>Schütze deinen PC leichtgewichtig und transparent. CatDefender scannt Ordner, verschiebt Funde in einen sicheren Quarantäne-Bereich und erlaubt das endgültige Löschen – ohne Bloat, ohne Tracking.</p>
 
-    <footer>
-        © 2025 CatDefender.net – Ein Projekt von MrCatMemes
-    </footer>
+    <!-- 🔧 DOWNLOAD-URL anpassen (GitHub Release ist ideal) -->
+    <a class="cta" href="https://github.com/MrCatMemes/catdefender-website/releases/latest/download/CatDefenderSetup.exe">
+      Download für Windows
+    </a>
+
+    <div class="meta">Letzte Version: v0.4 • Windows 10/11 • Größe ca. 10–30&nbsp;MB</div>
+  </section>
+
+  <section id="features" class="section container features">
+    <h3 class="h3">Features</h3>
+    <div class="grid">
+      <div class="card" style="grid-column:span 6"><span class="dot"></span> Scan nach Bedrohungen (Signatur & Heuristik)</div>
+      <div class="card" style="grid-column:span 6"><span class="dot"></span> Quarantäne-Ordner mit Übersicht</div>
+      <div class="card" style="grid-column:span 6"><span class="dot"></span> Sichere Entfernung ausgewählter Dateien</div>
+      <div class="card" style="grid-column:span 6"><span class="dot"></span> Lokale Verarbeitung – keine Cloud-Uploads</div>
+    </div>
+  </section>
+
+  <section class="section container screens">
+    <div class="grid">
+      <div class="card" style="grid-column:span 7">
+        <div class="kicker">UI</div>
+        <div class="h3">Klar. Dunkel. Fokus auf das Wesentliche.</div>
+        <p class="muted">Einfach starten, Ordner wählen, Fortschritt sehen. Quarantäne lässt sich mit einem Klick prüfen und säubern.</p>
+        <ul class="list">
+          <li>Dark-UI mit akzentuierten Buttons</li>
+          <li>Flüssiger Scan dank Hintergrund-Thread</li>
+          <li>Transparente Statusmeldungen</li>
+        </ul>
+      </div>
+      <div class="card" style="grid-column:span 5">
+        <!-- 🔧 ersetze src durch deinen Screenshot im Repo (z.B. /assets/screen1.jpg) -->
+        <img src="assets/screenshot-ui.jpg" alt="CatDefender Benutzeroberfläche – Status & Aktionen">
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="section container">
+    <div class="grid">
+      <div class="card" style="grid-column:span 12">
+        <div class="kicker">So funktioniert’s</div>
+        <div class="h3">Schnell erklärt</div>
+        <ol class="list">
+          <li>Programm starten und <strong>„Scan starten“</strong> klicken.</li>
+          <li>Ordner auswählen. CatDefender prüft Dateiendungen und bekannte Test-Signaturen lokal.</li>
+          <li>Verdächtige Dateien landen in <strong>Quarantäne</strong> (<code>C:\CatDefender\Quarantine</code>).</li>
+          <li>Im Quarantäne-Fenster kannst du Einträge <strong>prüfen</strong> oder <strong>dauerhaft löschen</strong>.</li>
+        </ol>
+        <p class="muted">Hinweis: CatDefender ist ein schlanker Schutz für Basistests und Lernzwecke – kein Ersatz für einen vollwertigen Enterprise-Virenschutz.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" class="section container">
+    <div class="grid">
+      <div class="card" style="grid-column:span 7">
+        <div class="kicker">Download</div>
+        <div class="h3">CatDefender Setup</div>
+        <p>Signiert? Aktuell nicht – Windows zeigt ggf. „Unbekannter Herausgeber“. Datei kann jederzeit auf Wunsch mit externen Diensten geprüft werden.</p>
+        <p class="muted">Direkter Download: <a href="https://github.com/MrCatMemes/catdefender-website/releases/latest/download/CatDefenderSetup.exe">CatDefenderSetup.exe</a></p>
+        <p class="muted">Prüfsumme (SHA-256): <code><!-- 🔧 hier deine SHA-256 eintragen --> coming-soon</code></p>
+      </div>
+      <div class="card" style="grid-column:span 5">
+        <div class="kicker">Changelog</div>
+        <ul class="list">
+          <li><strong>v0.4</strong> – Dark-UI, Progressbar, Quarantäne-Viewer mit Löschen</li>
+          <li><strong>v0.3</strong> – Quarantäne hinzugefügt</li>
+          <li><strong>v0.2</strong> – EICAR-Erkennung, Basisscan</li>
+          <li><strong>v0.1</strong> – Erste Version</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section container faq">
+    <h3 class="h3">FAQ</h3>
+    <details>
+      <summary>Ist CatDefender kostenlos?</summary>
+      <p>Ja. Die Software wird als Hobby-/Community-Projekt kostenlos bereitgestellt.</p>
+    </details>
+    <details>
+      <summary>Warum warnen manche Scanner/Smartscreen?</summary>
+      <p>Neue, unsignierte EXE/Installer werden von manchen Tools vorsichtshalber markiert. Der Code arbeitet lokal, lädt keine Daten hoch und enthält keine schädlichen Funktionen.</p>
+    </details>
+    <details>
+      <summary>Unterstützte Systeme?</summary>
+      <p>Windows 10/11 (x64). Eine macOS/Android-Variante ist langfristig geplant.</p>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div class="pill">
+      <span class="logo" aria-hidden="true" style="width:18px;height:18px"></span>
+      <span>© 2025 CatDefender – Ein Projekt von MrCatMemes</span>
+    </div>
+    <div class="muted">
+      <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="mailto:contact@catdefender.net">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
