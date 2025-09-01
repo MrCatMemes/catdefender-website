@@ -1,152 +1,147 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>CatDefender Antivirus – Kostenlos & Ehrlich</title>
-  <meta name="description" content="CatDefender ist ein leichtes Antivirus-Tool für Windows. Einfacher Scan, Quarantäne & sicheres Löschen. Kostenlos, ohne Werbung, ohne Abo.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CatDefender Antivirus</title>
   <style>
-    :root {
-      --bg:#0c0f14; --bg-soft:#131822; --card:#161c27;
-      --muted:#a6b1c2; --text:#eaf1ff; --accent:#37b0ff; --accent-2:#2597e6;
-      --ok:#2bd978; --radius:14px; --shadow:0 10px 28px rgba(0,0,0,.45);
-      --max:1100px;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%,#0d121a 100%);color:var(--text);font:16px/1.6 "Inter","Segoe UI",system-ui}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{color:var(--accent-2)}
-    .container{max-width:var(--max);margin:0 auto;padding:24px}
-    header{position:sticky;top:0;background:rgba(12,15,20,.75);backdrop-filter:blur(8px);border-bottom:1px solid #1b2330;z-index:10}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:30px;height:30px;border-radius:8px;background:radial-gradient(circle at 30% 30%,#6ce1ff,transparent 35%),radial-gradient(circle at 70% 70%,#2e7fda,transparent 45%),#0e1622;border:1px solid #2a3446}
-    .hero{padding:64px 0 16px;text-align:center}
-    .hero h2{font-size:44px;margin:0 0 10px}
-    .hero p{margin:0 auto 24px;max-width:760px;color:var(--muted)}
-    .cta{display:inline-block;background:var(--accent);color:#001428;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:var(--shadow);transition:.15s}
-    .cta:hover{transform:translateY(-1px);background:var(--accent-2)}
-    .meta{margin-top:12px;color:var(--muted);font-size:.95rem}
-    .section{padding:40px 0}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .card{background:var(--card);border:1px solid #1f2a3b;border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(43,217,120,.12)}
-    .muted{color:var(--muted)}
-    .faq details{background:var(--card);border:1px solid #1f2a3b;border-radius:12px;padding:14px 16px;margin-bottom:10px}
-    .faq summary{cursor:pointer;font-weight:600}
-    footer{margin-top:40px;border-top:1px solid #1a2434;background:#0a0e14}
-    .foot{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:20px 0}
+
+    header {
+      padding: 20px;
+      background: #111;
+      font-size: 26px;
+      font-weight: bold;
+      color: #00c3ff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+
+    section {
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .features, .faq {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 8px;
+    }
+
+    .features li, .faq li {
+      font-size: 18px;
+      margin: 12px 0;
+      list-style: "✔ ";
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      background: #00c3ff;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .download-btn:hover {
+      background: #008ecc;
+    }
+
+    footer {
+      background: #111;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    .impressum, .kontakt {
+      max-width: 800px;
+      margin: 30px auto;
+      text-align: left;
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #00c3ff;
+    }
   </style>
 </head>
 <body>
+  <header>
+    🐱 CatDefender Antivirus
+  </header>
 
-<header>
-  <div class="container nav">
-    <div class="brand">
-      <div class="logo"></div>
-      <h1>CatDefender</h1>
+  <section>
+    <h1>Schütze deinen PC wie eine Katze ihr Revier</h1>
+    <p>CatDefender ist dein kostenloses Antivirus-Tool – einfach, sicher und ohne Werbung.</p>
+
+    <div class="features">
+      <h2>Features</h2>
+      <ul>
+        <li>Scan nach Bedrohungen</li>
+        <li>Quarantäne-Ordner</li>
+        <li>Dateien sicher löschen</li>
+        <li>Kostenlos & leicht zu bedienen</li>
+        <li>Keine Werbung oder versteckte Kosten</li>
+      </ul>
     </div>
-    <nav>
-      <a href="#features">Features</a> &nbsp;
-      <a href="#why">Warum?</a> &nbsp;
-      <a href="#how">So funktioniert’s</a> &nbsp;
-      <a href="#download">Download</a> &nbsp;
-      <a href="#faq">FAQ</a>
-    </nav>
-  </div>
-</header>
 
-<main>
-  <section class="hero container">
-    <h2>CatDefender Antivirus</h2>
-    <p>Ein schlanker, ehrlicher Zusatzschutz für Windows. Kostenlos, ohne Werbung, ohne Abo.</p>
-    <a class="cta" href="https://github.com/MrCatMemes/catdefender-website/releases/latest/download/CatDefenderSetup.exe">Download für Windows</a>
-    <div class="meta">Version 1.0 • Windows 10/11 • Letztes Update 2025</div>
+    <a href="https://github.com/MrCatMemes/catdefender-website/releases/download/v1.0/mysetup.exe" class="download-btn">
+      Download für Windows
+    </a>
   </section>
 
-  <section id="features" class="section container">
-    <h3>Features</h3>
-    <div class="grid">
-      <div class="card" style="grid-column:span 6"><span class="dot"></span> Scan nach Bedrohungen (EICAR & verdächtige Muster)</div>
-      <div class="card" style="grid-column:span 6"><span class="dot"></span> Quarantäne-Ordner mit Übersicht</div>
-      <div class="card" style="grid-column:span 6"><span class="dot"></span> Sichere Entfernung von Dateien</div>
-      <div class="card" style="grid-column:span 6"><span class="dot"></span> Läuft lokal, keine Cloud-Uploads</div>
-    </div>
+  <section class="faq">
+    <h2>Häufig gestellte Fragen (FAQ)</h2>
+    <ul>
+      <li><b>Ist CatDefender kostenlos?</b><br> Ja, 100% kostenlos ohne Werbung oder versteckte Kosten.</li>
+      <li><b>Kann ich CatDefender vertrauen?</b><br> Ja, du kannst es jederzeit mit Tools wie VirusTotal prüfen.</li>
+      <li><b>Läuft CatDefender auch auf Windows 10?</b><br> Ja, es unterstützt Windows 10 und 11.</li>
+      <li><b>Wie oft gibt es Updates?</b><br> Updates erscheinen regelmäßig über GitHub-Releases.</li>
+    </ul>
   </section>
 
-  <section id="why" class="section container">
-    <h3>Warum CatDefender?</h3>
-    <div class="grid">
-      <div class="card" style="grid-column:span 6"><strong>Kostenlos & Ehrlich</strong><p>100 % Freeware, ohne Abos, ohne Werbung.</p></div>
-      <div class="card" style="grid-column:span 6"><strong>Leichtgewichtig</strong><p>Kein Bloat, läuft ohne dein System auszubremsen.</p></div>
-      <div class="card" style="grid-column:span 6"><strong>Zusatzschutz</strong><p>Ergänzt Microsoft Defender mit transparenter Kontrolle.</p></div>
-      <div class="card" style="grid-column:span 6"><strong>Community-Projekt</strong><p>Aus Spaß am Programmieren – für alle kostenlos.</p></div>
-    </div>
+  <section class="impressum">
+    <h2>Impressum</h2>
+    <p><b>Projektname:</b> CatDefender Antivirus<br>
+    <b>Verantwortlich:</b> MrCatMemes (Community-Projekt)<br>
+    <b>Website:</b> <a href="https://catdefender.net" style="color:#00c3ff;">catdefender.net</a></p>
   </section>
 
-  <section id="how" class="section container">
-    <h3>So funktioniert’s</h3>
-    <ol>
-      <li>Programm starten → „Scan starten“ klicken.</li>
-      <li>Ordner auswählen → CatDefender prüft Dateien.</li>
-      <li>Verdächtige Dateien → Quarantäne.</li>
-      <li>Von dort löschen oder prüfen.</li>
-    </ol>
+  <section class="kontakt">
+    <h2>Kontakt</h2>
+    <p>Du hast Fragen oder Feedback?<br>
+    Schreibe uns über GitHub: <a href="https://github.com/MrCatMemes" style="color:#00c3ff;">@MrCatMemes</a></p>
   </section>
 
-  <section id="download" class="section container">
-    <h3>Download</h3>
-    <p><a href="https://github.com/MrCatMemes/catdefender-website/releases/latest/download/CatDefenderSetup.exe">CatDefenderSetup.exe herunterladen</a></p>
-    <p class="muted">Hinweis: Windows zeigt „Unbekannter Herausgeber“. CatDefender enthält keine Schadsoftware.</p>
-  </section>
-
-  <section id="faq" class="section container faq">
-    <h3>FAQ</h3>
-
-    <details>
-      <summary>Ist CatDefender kostenlos?</summary>
-      <p>Ja. CatDefender ist ein Hobby-/Community-Projekt und wird 100 % kostenlos bereitgestellt.</p>
-    </details>
-
-    <details>
-      <summary>Hat CatDefender Werbung oder versteckte Kosten?</summary>
-      <p>Nein. Es gibt keine Werbung, keine Abos und keine versteckten Kosten.</p>
-    </details>
-
-    <details>
-      <summary>Kann CatDefender alle Viren finden?</summary>
-      <p>Nein. Es ist ein leichtes Tool für Basis-Scans. Es ergänzt Microsoft Defender, ersetzt ihn aber nicht.</p>
-    </details>
-
-    <details>
-      <summary>Sammelt CatDefender Daten?</summary>
-      <p>Nein. Alles läuft lokal, es gibt kein Tracking und keine Cloud-Uploads.</p>
-    </details>
-
-    <details>
-      <summary>Wo landen Dateien aus der Quarantäne?</summary>
-      <p>Im Ordner <code>C:\CatDefender\Quarantine</code>. Dort können sie geprüft oder gelöscht werden.</p>
-    </details>
-
-    <details>
-      <summary>Ist CatDefender sicher oder ein Fake-Antivirus?</summary>
-      <p>CatDefender ist ein transparentes Projekt. Keine versteckten Funktionen, keine Malware, kein Scam.</p>
-    </details>
-
-    <details>
-      <summary>Wird CatDefender weiterentwickelt?</summary>
-      <p>Ja! Geplant sind Log-System, automatische Updates und eine erweiterte UI.</p>
-    </details>
-  </section>
-</main>
-
-<footer>
-  <div class="container foot">
-    <span>© 2025 CatDefender – Ein Projekt von MrCatMemes</span>
-    <span><a href="impressum.html">Impressum</a> · <a href="mailto:contact@catdefender.net">Kontakt</a></span>
-  </div>
-</footer>
-
+  <footer>
+    © 2025 CatDefender.net – Ein Projekt von MrCatMemes
+  </footer>
 </body>
 </html>
 
