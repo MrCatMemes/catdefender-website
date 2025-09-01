@@ -11,51 +11,111 @@
       --text:#eaf1ff; --accent:#37b0ff; --accent-2:#2597e6; --ok:#2bd978;
       --radius:14px; --shadow:0 10px 28px rgba(0,0,0,.45); --max:1100px;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(180deg,var(--bg) 0%,#0d121a 100%);color:var(--text);font:16px/1.6 "Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif}
-    a{color:var(--accent);text-decoration:none}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:linear-gradient(180deg,var(--bg) 0%,#0d121a 100%);
+      color:var(--text); font:16px/1.6 "Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif
+    }
+    a{color:var(--accent);text-decoration:none;transition:color .2s ease}
     a:hover{color:var(--accent-2)}
-    .container{max-width:var(--max);margin:0 auto;padding:24px}
-    header{position:sticky;top:0;background:rgba(12,15,20,.75);backdrop-filter:blur(8px);border-bottom:1px solid #1b2330;z-index:10}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:20;
+      background:rgba(12,15,20,.72); backdrop-filter:blur(8px);
+      border-bottom:1px solid #1b2330; transition:box-shadow .25s ease,border-color .25s ease
+    }
+    header.scrolled{box-shadow:0 10px 26px rgba(0,0,0,.35); border-color:#223148}
+    .container{max-width:var(--max); margin:0 auto; padding:24px}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:30px;height:30px;border-radius:8px;background:radial-gradient(circle at 30% 30%,#6ce1ff,transparent 35%),radial-gradient(circle at 70% 70%,#2e7fda,transparent 45%),#0e1622;border:1px solid #2a3446}
+    .logo{width:30px;height:30px;border-radius:8px;background:
+      radial-gradient(circle at 30% 30%,#6ce1ff,transparent 35%),
+      radial-gradient(circle at 70% 70%,#2e7fda,transparent 45%),#0e1622;
+      border:1px solid #2a3446; box-shadow:0 6px 16px rgba(0,0,0,.35)}
     .brand h1{font-size:18px;margin:0}
-    .hero{padding:64px 0 16px;text-align:center}
+    nav a{padding:8px 10px;border-radius:10px;transition:background .2s ease, transform .1s ease}
+    nav a:hover{background:#131a25}
+    nav a:active{transform:translateY(1px)}
+
+    /* Hero */
+    .hero{padding:72px 0 18px;text-align:center}
     .hero h2{font-size:44px;line-height:1.1;margin:0 0 10px;letter-spacing:.2px}
     .hero p{margin:0 auto 24px;max-width:760px;color:var(--muted)}
-    .cta{display:inline-block;background:var(--accent);color:#001428;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:var(--shadow);transition:.15s;letter-spacing:.2px}
-    .cta:hover{transform:translateY(-1px);background:var(--accent-2)}
+    .cta{
+      display:inline-block;background:var(--accent);color:#001428;font-weight:700;
+      padding:14px 22px;border-radius:12px;box-shadow:var(--shadow);
+      letter-spacing:.2px; transition:transform .15s ease, background .15s ease, box-shadow .2s ease
+    }
+    .cta:hover{transform:translateY(-2px);background:var(--accent-2);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+    .cta:active{transform:translateY(0)}
     .meta{margin-top:12px;color:var(--muted);font-size:.95rem}
-    .section{padding:40px 0}
+
+    /* Sections */
+    .section{padding:44px 0; scroll-margin-top:90px}
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .card{background:var(--card);border:1px solid #1f2a3b;border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .card{
+      background:var(--card); border:1px solid #1f2a3b; border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:20px;
+      transform:translateY(6px); opacity:0; transition:transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s ease, box-shadow .2s ease, border-color .2s ease
+    }
+    .card:hover{box-shadow:0 14px 32px rgba(0,0,0,.55); border-color:#2a3b55}
     .features .card{display:flex;align-items:center;gap:12px}
     .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(43,217,120,.12)}
     .muted{color:var(--muted)}
-    .faq details{background:var(--card);border:1px solid #1f2a3b;border-radius:12px;padding:14px 16px}
+    code{background:#111827;border:1px solid #1f2a3b;border-radius:8px;padding:4px 6px}
+
+    /* Reveal Effekt */
+    .reveal-in{opacity:1; transform:translateY(0)}
+    .stagger-1{transition-delay:.06s}
+    .stagger-2{transition-delay:.12s}
+    .stagger-3{transition-delay:.18s}
+    .stagger-4{transition-delay:.24s}
+
+    /* FAQ */
+    .faq details{
+      background:var(--card); border:1px solid #1f2a3b; border-radius:12px; padding:14px 16px;
+      transition:border-color .2s ease, box-shadow .2s ease
+    }
     .faq details+details{margin-top:10px}
+    .faq summary{cursor:pointer;font-weight:600}
+    .faq details:hover{border-color:#2a3b55; box-shadow:0 10px 24px rgba(0,0,0,.45)}
+
+    /* Footer */
     footer{margin-top:40px;border-top:1px solid #1a2434;background:#0a0e14}
     .foot{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:20px 0}
-    .pill{display:inline-flex;gap:10px;align-items:center;background:var(--bg-soft);border:1px solid #1f2a3b;border-radius:999px;padding:8px 12px}
-    code{background:#111827;border:1px solid #1f2a3b;border-radius:8px;padding:4px 6px}
-    @media (max-width:880px){.hero h2{font-size:34px}.grid{grid-template-columns:repeat(6,1fr)}}
-    @media (max-width:540px){.hero{padding-top:46px}.hero h2{font-size:28px}.cta{width:100%}}
+    .pill{
+      display:inline-flex;gap:10px;align-items:center;background:var(--bg-soft);
+      border:1px solid #1f2a3b;border-radius:999px;padding:8px 12px
+    }
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero h2{font-size:34px}
+      .grid{grid-template-columns:repeat(6,1fr)}
+    }
+    @media (max-width:540px){
+      .hero{padding-top:56px}
+      .hero h2{font-size:28px}
+      .cta{width:100%}
+    }
   </style>
 </head>
 <body>
 
-<header>
+<header id="hdr">
   <div class="container nav">
     <div class="brand">
       <div class="logo" aria-hidden="true"></div>
       <h1>CatDefender</h1>
     </div>
     <nav>
-      <a href="#features">Features</a> &nbsp;&nbsp;
-      <a href="#why">Warum?</a> &nbsp;&nbsp;
-      <a href="#how">So funktioniert’s</a> &nbsp;&nbsp;
-      <a href="#download">Download</a> &nbsp;&nbsp;
+      <a href="#features">Features</a>
+      <a href="#why">Warum?</a>
+      <a href="#how">So funktioniert’s</a>
+      <a href="#download">Download</a>
       <a href="#faq">FAQ</a>
     </nav>
   </div>
@@ -63,83 +123,92 @@
 
 <main>
   <section class="hero container">
-    <h2>CatDefender Antivirus</h2>
-    <p>Schlanker Zusatzschutz für Windows – lokal, transparent, ohne Werbung. Einfach starten, scannen, Quarantäne checken.</p>
+    <h2 class="reveal">CatDefender Antivirus</h2>
+    <p class="reveal stagger-1">Schlanker Zusatzschutz für Windows – lokal, transparent, ohne Werbung. Einfach starten, scannen, Quarantäne checken.</p>
 
     <!-- dein Release-Link -->
-    <a class="cta" href="https://github.com/MrCatMemes/catdefender-website/releases/download/v1.0/mysetup.exe">
+    <a class="cta reveal stagger-2" href="https://github.com/MrCatMemes/catdefender-website/releases/download/v1.0/mysetup.exe">
       Download für Windows
     </a>
 
-    <div class="meta">Letzte Version: v1.0 • Windows 10/11 • ~12 MB</div>
+    <div class="meta reveal stagger-3">Letzte Version: v1.0 • Windows 10/11 • ~12 MB</div>
   </section>
 
   <section id="features" class="section container features">
-    <h3 style="margin-top:0">Features</h3>
+    <h3 style="margin-top:0" class="reveal">Features</h3>
     <div class="grid">
-      <div class="card" style="grid-column:span 6"><span class="dot"></span> Scan nach Bedrohungen (EICAR & einfache Muster)</div>
-      <div class="card" style="grid-column:span 6"><span class="dot"></span> Quarantäne-Ordner mit Übersicht</div>
-      <div class="card" style="grid-column:span 6"><span class="dot"></span> Dateien dauerhaft löschen</div>
-      <div class="card" style="grid-column:span 6"><span class="dot"></span> Lokal verarbeitet – kein Tracking, keine Cloud</div>
+      <div class="card reveal stagger-1" style="grid-column:span 6"><span class="dot"></span> Scan nach Bedrohungen (EICAR & einfache Muster)</div>
+      <div class="card reveal stagger-2" style="grid-column:span 6"><span class="dot"></span> Quarantäne-Ordner mit Übersicht</div>
+      <div class="card reveal stagger-3" style="grid-column:span 6"><span class="dot"></span> Dateien dauerhaft löschen</div>
+      <div class="card reveal stagger-4" style="grid-column:span 6"><span class="dot"></span> Lokal verarbeitet – kein Tracking, keine Cloud</div>
     </div>
   </section>
 
   <section id="why" class="section container">
-    <h3 class="h3">Warum CatDefender?</h3>
+    <h3 class="reveal">Warum CatDefender?</h3>
     <div class="grid">
-      <div class="card" style="grid-column:span 6"><strong>Kostenlos & ehrlich</strong><p class="muted">Ohne Abos, ohne Werbung, einfach Freeware.</p></div>
-      <div class="card" style="grid-column:span 6"><strong>Leichtgewichtig</strong><p class="muted">Kein Bloat, keine Performance-Killer.</p></div>
-      <div class="card" style="grid-column:span 6"><strong>Zusatz zu Defender</strong><p class="muted">Ergänzt Microsoft Defender mit transparenter Kontrolle.</p></div>
-      <div class="card" style="grid-column:span 6"><strong>Community-Projekt</strong><p class="muted">Aus Spaß am Coden – für alle kostenlos.</p></div>
+      <div class="card reveal stagger-1" style="grid-column:span 6"><strong>Kostenlos & ehrlich</strong><p class="muted">Ohne Abos, ohne Werbung, einfach Freeware.</p></div>
+      <div class="card reveal stagger-2" style="grid-column:span 6"><strong>Leichtgewichtig</strong><p class="muted">Kein Bloat, keine Performance-Killer.</p></div>
+      <div class="card reveal stagger-3" style="grid-column:span 6"><strong>Zusatz zu Defender</strong><p class="muted">Ergänzt Microsoft Defender mit transparenter Kontrolle.</p></div>
+      <div class="card reveal stagger-4" style="grid-column:span 6"><strong>Community-Projekt</strong><p class="muted">Aus Spaß am Coden – für alle kostenlos.</p></div>
     </div>
   </section>
 
   <section id="how" class="section container">
-    <h3>So funktioniert’s</h3>
-    <ol class="list" style="padding-left:18px;margin:10px 0 0">
+    <h3 class="reveal">So funktioniert’s</h3>
+    <ol class="list reveal stagger-1" style="padding-left:18px;margin:10px 0 0">
       <li>Start → „Scan starten“.</li>
       <li>Ordner wählen → Dateien werden geprüft.</li>
       <li>Funde landen in <code>C:\CatDefender\Quarantine</code>.</li>
       <li>Im Quarantäne-Fenster prüfen oder löschen.</li>
     </ol>
-    <p class="muted">Hinweis: schlankes Tool für Basis-Checks, kein vollwertiger Enterprise-Ersatz.</p>
+    <p class="muted reveal stagger-2">Hinweis: schlankes Tool für Basis-Checks, kein vollwertiger Enterprise-Ersatz.</p>
   </section>
 
   <section id="download" class="section container">
-    <h3>Download</h3>
-    <p><a href="https://github.com/MrCatMemes/catdefender-website/releases/download/v1.0/mysetup.exe">CatDefenderSetup.exe herunterladen</a></p>
-    <p class="muted">Windows kann „Unbekannter Herausgeber“ anzeigen (kein Zertifikat). Datei ist unsigniert, aber ohne Werbung/Tracking.</p>
+    <h3 class="reveal">Download</h3>
+    <p class="reveal stagger-1">
+      <a href="https://github.com/MrCatMemes/catdefender-website/releases/download/v1.0/mysetup.exe">CatDefenderSetup.exe herunterladen</a>
+    </p>
+    <p class="muted reveal stagger-2">Windows kann „Unbekannter Herausgeber“ anzeigen (kein Zertifikat). Datei ist unsigniert, aber ohne Werbung/Tracking.</p>
   </section>
 
   <section id="faq" class="section container faq">
-    <h3>FAQ</h3>
+    <h3 class="reveal">FAQ</h3>
 
-    <details>
+    <details class="reveal stagger-1">
       <summary>Ist CatDefender kostenlos?</summary>
       <p>Ja. 100 % kostenloses Hobby-/Community-Projekt.</p>
     </details>
 
-    <details>
+    <details class="reveal stagger-2">
       <summary>Hat CatDefender Werbung oder versteckte Kosten?</summary>
       <p>Nein. Keine Werbung, keine Abos, kein Tracking.</p>
     </details>
 
-    <details>
+    <details class="reveal stagger-3">
       <summary>Ersetzt CatDefender Microsoft Defender?</summary>
       <p>Nein, es ergänzt ihn nur. Defender bleibt deine Haupt-Protection.</p>
     </details>
 
-    <details>
+    <details class="reveal stagger-4">
       <summary>Sammelt CatDefender Daten?</summary>
       <p>Nein. Alles passiert lokal, keine Cloud-Uploads.</p>
     </details>
 
-    <details>
+    <details class="reveal stagger-1">
       <summary>Wo ist die Quarantäne?</summary>
       <p><code>C:\CatDefender\Quarantine</code>. Von dort prüfen oder löschen.</p>
     </details>
 
-    <details>
+    <details class="reveal stagger-2">
+      <summary>Wie erreiche ich den Support?</summary>
+      <p>Schreibe uns jederzeit unter
+        <a href="mailto:SupportCatDefender@gmail.com">SupportCatDefender@gmail.com</a>.
+      </p>
+    </details>
+
+    <details class="reveal stagger-3">
       <summary>Wird weiterentwickelt?</summary>
       <p>Jep: Logs, Auto-Updates, erweiterte Signaturen stehen auf der Liste.</p>
     </details>
@@ -148,15 +217,31 @@
 
 <footer>
   <div class="container foot">
-    <div class="pill">
+    <div class="pill reveal">
       <span class="logo" aria-hidden="true" style="width:18px;height:18px"></span>
       <span>© 2025 CatDefender – Ein Projekt von Steve & Max</span>
     </div>
-    <div class="muted">
-      <a href="mailto:contact@catdefender.net">Kontakt</a>
+    <div class="muted reveal stagger-1">
+      <a href="mailto:SupportCatDefender@gmail.com">Support kontaktieren</a>
     </div>
   </div>
 </footer>
+
+<script>
+  // Header-Schatten on scroll
+  const hdr = document.getElementById('hdr');
+  const onScroll = () => { window.scrollY > 6 ? hdr.classList.add('scrolled') : hdr.classList.remove('scrolled'); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Smooth Reveal via IntersectionObserver
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('reveal-in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal, .card').forEach(el=>io.observe(el));
+</script>
 
 </body>
 </html>
